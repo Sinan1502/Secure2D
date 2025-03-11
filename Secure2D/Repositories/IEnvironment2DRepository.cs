@@ -8,6 +8,6 @@ namespace Secure2D.Repositories
         Task<Environment2D?> GetByIdAsync(Guid id);
         Task AddAsync(Environment2D environment);
         Task UpdateAsync(Environment2D environment);
-        Task<bool> DeleteAsync(int id);
+        Task<bool> DeleteAsync(Guid id);
     }
 }

@@ -42,7 +42,7 @@ namespace Secure2D.Repositories
             await connection.ExecuteAsync(sql, environment);
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
             using var connection = new SqlConnection(_connectionString);
             var sql = "DELETE FROM Environment2D WHERE Id = @Id";

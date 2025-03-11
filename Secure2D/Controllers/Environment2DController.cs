@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Secure2D.Models;
 using Secure2D.Repositories;
 
@@ -6,6 +7,7 @@ namespace Secure2D.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class Environment2DController : ControllerBase
     {
         private readonly IEnvironment2DRepository _repository;
@@ -23,6 +25,7 @@ namespace Secure2D.Controllers
         }
 
         [HttpGet("{id}")]
+
         public async Task<ActionResult<Environment2D>> GetById(Guid id)
         {
             var environment = await _repository.GetByIdAsync(id);
@@ -51,7 +54,7 @@ namespace Secure2D.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             var deleted = await _repository.DeleteAsync(id);
             if (!deleted) return NotFound();
