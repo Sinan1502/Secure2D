@@ -27,6 +27,7 @@ builder.Services
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
 builder.Services.AddScoped<IEnvironment2DRepository, Environment2DRepository>();
+builder.Services.AddScoped<IObject2DRepository, Object2DRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
